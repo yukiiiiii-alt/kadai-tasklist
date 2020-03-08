@@ -45,8 +45,8 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $task = new Task;
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
 
@@ -96,6 +96,7 @@ class TasksController extends Controller
     {
         //
         $task = Task::find($id);
+        $task->status = $request->status;
         $task->content = $request->content;
         $task->save();
 
